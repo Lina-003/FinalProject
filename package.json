@@ -1,10 +1,10 @@
 {
-  "name": "FinalProject",
+  "name": "finalproject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "serve"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Lina-003/FinalProject/issues"
   },
-  "homepage": "https://github.com/Lina-003/FinalProject#readme"
+  "homepage": "https://github.com/Lina-003/FinalProject#readme",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
 }
