@@ -1,0 +1,18 @@
+.banner {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+/*
+#movies-container {
+    display: flex;
+    -ms-flex-item-align: center;
+    align-items: center;
+}
+*/
+.movies {
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    place-items: center;
+}
