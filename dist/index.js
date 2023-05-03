@@ -1,3 +1,5 @@
+import * as components from './components/index.js';
+
 export var Attribute;
 (function (Attribute) {
     Attribute["alice"] = "alice";
@@ -69,7 +71,6 @@ class AppContainer extends HTMLElement {
         if (this.shadowRoot)
             this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css"/>
-        <my-header></my-header>
         <section>         
             <div class = "banner">
             <img src=${this.bannerH} height = "480" alt=" "></img>
