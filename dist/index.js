@@ -44,7 +44,7 @@ class AppContainer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.alice = './dist/components/imageMovies/alice.png';
+        this.alice = './components/imageMovies/alice.png';
         this.amormina = './components/imageMovies/amormina.png';
         this.camino = './components/imageMovies/camino.png';
         this.christmas = './components/imageMovies/christmas.png';
@@ -68,7 +68,7 @@ class AppContainer extends HTMLElement {
     render() {
         if (this.shadowRoot)
             this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="./styles.css"
+        <link rel="stylesheet" href="./styles.css"/>
         <my-header></my-header>
         <section>         
             <div class = "banner">
