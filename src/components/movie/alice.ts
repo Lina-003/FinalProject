@@ -5,6 +5,13 @@ export enum Attribute {
   "log_perfil" = "log_perfil",
   "add" = "add",
   "play" = "play",
+  "c_ann" = "c_ann",
+  "c_ari" = "c_ari",
+  "c_hika" = "c_hika",
+  "c_shun" = "c_shun",
+  "c_sugu" = "c_sugu",
+  "moment_1" = "moment_1",
+  "moment_2" = "moment_2",
 }
 
 class AppContainer extends HTMLElement {
@@ -14,6 +21,13 @@ class AppContainer extends HTMLElement {
   log_perfil?: string;
   add?: string;
   play?: string;
+  c_ann?: string;
+  c_ari?: string;
+  c_hika?: string;
+  c_shun?: string;
+  c_sugu?: string;
+  moment_1?: string;
+  moment_2?: string;
 
   static get observedAttributes() {
     const attrs: Record<Attribute, null> = {
@@ -23,6 +37,13 @@ class AppContainer extends HTMLElement {
       log_perfil: null,
       add: null,
       play: null,
+      c_ann: null,
+      c_ari: null,
+      c_hika: null,
+      c_shun: null,
+      c_sugu: null,
+      moment_1: null,
+      moment_2: null,
     };
     return Object.keys(attrs);
   }
@@ -36,6 +57,15 @@ class AppContainer extends HTMLElement {
     this.log_perfil = "./dist/components/imageMS/perfil.png";
     this.add = "./dist/components/imageMS/button-add.png";
     this.play = "./dist/components/imageMS/play.png";
+    //Characters
+    this.c_ann = "./dist/components/imageCharacters/alice/Ann.png";
+    this.c_ari = "./dist/components/imageCharacters/alice/Arisu.png";
+    this.c_hika = "./dist/components/imageCharacters/alice/Hikari.png";
+    this.c_shun = "./dist/components/imageCharacters/alice/Shuntaro.png";
+    this.c_sugu = "./dist/components/imageCharacters/alice/Suguru.png";
+    //Moments
+    this.moment_1 = "./dist/components/imageMS/aliceMoments/moment_1png";
+    this.moment_2 = "./dist/components/imageMS/aliceMoments/moment_2png";
   }
 
   connectedCallback() {
@@ -65,13 +95,18 @@ class AppContainer extends HTMLElement {
 
             <div id="characters-container">
                 <div class = "characters">
-                <img src=${this.b_alice} height = "300np" alt=" "></img>
+                <img src=${this.c_ann} height = "300np" alt=" "></img>
+                <img src=${this.c_ari} height = "300np" alt=" "></img>
+                <img src=${this.c_hika} height = "300np" alt=" "></img>
+                <img src=${this.c_shun} height = "300np" alt=" "></img>
+                <img src=${this.c_sugu} height = "300np" alt=" "></img>
                 </div>
             </div>
 
             <div id="moments-container">
                 <div class = "moments">
-                <img src=${this.b_alice} height = "300np" alt=" "></img>
+                <img src=${this.moment_1} height = "300np" alt=" "></img>
+                <img src=${this.moment_2} height = "300np" alt=" "></img>
                 </div>
             </div>
         </section>
