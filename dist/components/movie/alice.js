@@ -36,21 +36,21 @@ class AppInfo extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.b_alice = "../imageMS/alice-banner.png";
-        this.back = "../imageHeader/arrow.png";
-        this.search = "../imageHeader/search.png";
-        this.log_perfil = "../imageMS/perfil.png";
-        this.add = "../imageMS/button-add.png";
-        this.play = "../imageMS/play.png";
+        this.b_alice = "./components/imageMS/alice-banner.png";
+        this.back = "./components/imageHeader/arrow.png";
+        this.search = "./components/imageHeader/search.png";
+        this.log_perfil = "./components/imageMS/perfil.png";
+        this.add = "./components/imageMS/button-add.png";
+        this.play = "./components/imageMS/play.png";
         //Characters
-        this.c_ann = "../imageCharacters/alice/Ann.png";
-        this.c_ari = "../imageCharacters/alice/Arisu.png";
-        this.c_hika = "../imageCharacters/alice/Hikari.png";
-        this.c_shun = "../imageCharacters/alice/Shuntaro.png";
-        this.c_sugu = "../imageCharacters/alice/Suguru.png";
+        this.c_ann = "./components/imageCharacters/alice/Ann.png";
+        this.c_ari = "./components/imageCharacters/alice/Arisu.png";
+        this.c_hika = "./components/imageCharacters/alice/Hikari.png";
+        this.c_shun = "./components/imageCharacters/alice/Shuntaro.png";
+        this.c_sugu = "./components/imageCharacters/alice/Suguru.png";
         //Moments
-        this.moment_1 = "../imageMS/aliceMoments/moment_1png";
-        this.moment_2 = "../imageMS/aliceMoments/moment_2png";
+        this.moment_1 = "./components/imageMS/aliceMoments/moment_1.png";
+        this.moment_2 = "./components/imageMS/aliceMoments/moment_2.png";
     }
     connectedCallback() {
         this.render();
@@ -62,19 +62,39 @@ class AppInfo extends HTMLElement {
     render() {
         if (this.shadowRoot)
             this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="./styles.css"
-        <my-header></my-header>
-        <section>         
-            <div class = "banner-alice">
-            <img src=${this.b_alice} height = "480np" alt=" "></img>
-            <div class="navLeft">
-                <img src=${this.back} height = "60np" alt=" "></img>
-                </div>
-            <div class="navRight">
+        <link rel="stylesheet" href="./components/movie/alice.css">
+        <section class="container">         
+          <section class="banner-container">
+          <nav>
+              <div class="left-nav">
+                <img src=${this.back} height = "30np" alt=" "></img>
+              </div>
+
+              <div class="right-nav">
                 <img src=${this.search} height = "30np" alt=" "></img>
                 <img src=${this.log_perfil} height = "30np" alt=" "></img>
+              </div>
+          </nav>
+            
+              <div class = "banner-alice">
+                <img src=${this.b_alice} height = "480np" alt=" "></img>
+              </div>
+              <section class="full-container">
+                <div class="info-container">
+                  <p class="info">In 1717, Captain Bonnet is a member of the landed gentry of Barbados who abandons his comfortable life and family to prove himself as a pirate during the Golden Age of Piracy, despite having no aptitude for the role. Sailing aboard his ship the Revenge, Captain Bonnet and his dysfunctional crew struggle to survive against deadly threats from naval warships and other bloodthirsty pirates. During their misadventures the crew of the Revenge cross paths with notorious pirate captain Edward Teach and his crew, including First Mate Izzy Hands. Bonnet and Teach eventually fall in love.</p>
+                  <p class="creator"><span>Created by: </span>David Jenkins</p>
+                  <p class="starring"><span>Starring: </span>Rhys Darby, Ewen Bremner, Joel Fry, Samson Kayo</p>
                 </div>
-            </div>
+                <div class="play">
+                <img src=${this.play} height = "70np" alt=" "></img>
+                  <img src=${this.add} height = "70np" alt=" "></img>
+                  
+                </div>
+
+
+              </section>
+            
+          </section>
 
             <div id="characters-container">
                 <div class = "characters">

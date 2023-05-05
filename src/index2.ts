@@ -1,10 +1,9 @@
-import "./components/index.js";
+import "./components/index2.js";
 import * as components from "./components/index.js";
 import AppInfo from "./components/movie/alice.js";
-import Header from "./components/Header/header.js";
 import Home from "./components/home/home.js";
 
-class AppContainer extends HTMLElement {
+class AppContainer2 extends HTMLElement {
   
   constructor() {
     super();
@@ -19,10 +18,9 @@ class AppContainer extends HTMLElement {
     if (this.shadowRoot)
       this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css"/>
-        <my-header></my-header>
-        <app-home></app-home>
+        <app-info></app-info>
         `;
   }
 }
 
-customElements.define("app-container", AppContainer);
+customElements.define("app-container2", AppContainer2);

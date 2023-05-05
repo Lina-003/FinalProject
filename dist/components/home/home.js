@@ -69,7 +69,6 @@ class Home extends HTMLElement {
         if (this.shadowRoot)
             this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css"/>
-        <my-header></my-header>
         <section>         
             <div class = "banner">
             <img src=${this.bannerH} height = "480" alt=" "></img>
@@ -81,7 +80,9 @@ class Home extends HTMLElement {
 
             <div id="movies-container">
                 <div class = "movies">
-                <img src=${this.alice} height = "300np" alt=" "></img>
+                <a href="./index2.html">
+                    <img class="change" src=${this.alice} height = "300np" alt=" "></img>
+                </a>
                 <img src=${this.amormina} height = "300np" alt=" "></img>
                 <img src=${this.camino} height = "300np" alt=" "></img>
                 <img src=${this.glass} height = "300np" alt=" "></img>
