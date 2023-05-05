@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navLeft {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navRight {
+    display: flex;
+    
+    gap: 30px;
+}
+
+*{
+    background-color: black;
+}

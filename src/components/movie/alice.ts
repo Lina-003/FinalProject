@@ -1,4 +1,4 @@
-export enum Attribute {
+export enum Attribute3 {
   "b_alice" = "b_alice",
   "back" = "back",
   "search" = "search",
@@ -14,7 +14,7 @@ export enum Attribute {
   "moment_2" = "moment_2",
 }
 
-class AppContainer extends HTMLElement {
+class AppInfo extends HTMLElement {
   b_alice?: string;
   back?: string;
   search?: string;
@@ -30,7 +30,7 @@ class AppContainer extends HTMLElement {
   moment_2?: string;
 
   static get observedAttributes() {
-    const attrs: Record<Attribute, null> = {
+    const attrs: Record<Attribute3, null> = {
       b_alice: null,
       back: null,
       search: null,
@@ -51,24 +51,33 @@ class AppContainer extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.b_alice = "./dist/components/imageMS/alice-banner.png";
-    this.back = "./dist/components/imageHeader/arrow.png";
-    this.search = "./dist/components/imageHeader/search.png";
-    this.log_perfil = "./dist/components/imageMS/perfil.png";
-    this.add = "./dist/components/imageMS/button-add.png";
-    this.play = "./dist/components/imageMS/play.png";
+    this.b_alice = "../imageMS/alice-banner.png";
+    this.back = "../imageHeader/arrow.png";
+    this.search = "../imageHeader/search.png";
+    this.log_perfil = "../imageMS/perfil.png";
+    this.add = "../imageMS/button-add.png";
+    this.play = "../imageMS/play.png";
     //Characters
-    this.c_ann = "./dist/components/imageCharacters/alice/Ann.png";
-    this.c_ari = "./dist/components/imageCharacters/alice/Arisu.png";
-    this.c_hika = "./dist/components/imageCharacters/alice/Hikari.png";
-    this.c_shun = "./dist/components/imageCharacters/alice/Shuntaro.png";
-    this.c_sugu = "./dist/components/imageCharacters/alice/Suguru.png";
+    this.c_ann = "../imageCharacters/alice/Ann.png";
+    this.c_ari = "../imageCharacters/alice/Arisu.png";
+    this.c_hika = "../imageCharacters/alice/Hikari.png";
+    this.c_shun = "../imageCharacters/alice/Shuntaro.png";
+    this.c_sugu = "../imageCharacters/alice/Suguru.png";
     //Moments
-    this.moment_1 = "./dist/components/imageMS/aliceMoments/moment_1png";
-    this.moment_2 = "./dist/components/imageMS/aliceMoments/moment_2png";
+    this.moment_1 = "../imageMS/aliceMoments/moment_1png";
+    this.moment_2 = "../imageMS/aliceMoments/moment_2png";
   }
 
   connectedCallback() {
+    this.render();
+  }
+
+  attributeChangedCallback(
+    propName: Attribute3,
+    oldValue: string | undefined,
+    newValue: string | undefined
+  ) {
+    this[propName] = newValue;
     this.render();
   }
 
@@ -79,7 +88,7 @@ class AppContainer extends HTMLElement {
         <my-header></my-header>
         <section>         
             <div class = "banner-alice">
-            <img src=${this.b_alice} height = "480" alt=" "></img>
+            <img src=${this.b_alice} height = "480np" alt=" "></img>
             <div class="navLeft">
                 <img src=${this.back} height = "60np" alt=" "></img>
                 </div>
@@ -88,10 +97,6 @@ class AppContainer extends HTMLElement {
                 <img src=${this.log_perfil} height = "30np" alt=" "></img>
                 </div>
             </div>
-
-            <input>
-                sort by
-            </input>
 
             <div id="characters-container">
                 <div class = "characters">
@@ -114,4 +119,5 @@ class AppContainer extends HTMLElement {
   }
 }
 
-customElements.define("app-container", AppContainer);
+customElements.define("app-info", AppInfo);
+export default AppInfo;

@@ -1,27 +1,43 @@
-import "./components/index.js";
-export var Attribute;
-(function (Attribute) {
-    Attribute["alice"] = "alice";
-    Attribute["amormina"] = "amormina";
-    Attribute["camino"] = "camino";
-    Attribute["christmas"] = "christmas";
-    Attribute["glass"] = "glass";
-    Attribute["bannerH"] = "bannerH";
-    Attribute["hillhouse"] = "hillhouse";
-    Attribute["stranger"] = "stranger";
-    Attribute["lie"] = "lie";
-    Attribute["love"] = "love";
-    Attribute["ofmd"] = "ofmd";
-    Attribute["iradedios"] = "iradedios";
-    Attribute["jojo"] = "jojo";
-    Attribute["rain"] = "rain";
-    Attribute["sandman"] = "sandman";
-    Attribute["spenser"] = "spenser";
-    Attribute["stand"] = "stand";
-})(Attribute || (Attribute = {}));
-class AppContainer extends HTMLElement {
+export enum Attribute {
+    "alice" = "alice",
+    "amormina" = "amormina",
+    "camino" = "camino",
+    "christmas" = "christmas",
+    "glass" = "glass",
+    "bannerH" = "bannerH",
+    "hillhouse" = "hillhouse",
+    "stranger" = "stranger",
+    "lie" = "lie",
+    "love" = "love",
+    "ofmd" = "ofmd",
+    "iradedios" = "iradedios",
+    "jojo" = "jojo",
+    "rain" = "rain",
+    "sandman" = "sandman",
+    "spenser" = "spenser",
+    "stand" = "stand"
+}
+class Home extends HTMLElement {
+    alice?: string;
+    amormina?: string;
+    camino?: string;
+    christmas?: string;
+    glass?: string;
+    bannerH?: string;
+    hillhouse?: string;
+    stranger?: string;
+    lie?: string;
+    love?: string;
+    ofmd?: string;
+    iradedios?: string;
+    jojo?: string;
+    rain?: string;
+    sandman?: string;
+    spenser?: string;
+    stand?: string;
+
     static get observedAttributes() {
-        const attrs = {
+        const attrs: Record<Attribute, null> = {
             alice: null,
             amormina: null,
             camino: null,
@@ -39,12 +55,13 @@ class AppContainer extends HTMLElement {
             sandman: null,
             spenser: null,
             stand: null
-        };
+        }
         return Object.keys(attrs);
     }
+
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
+        this.attachShadow({mode: 'open'});
         this.alice = './components/imageMovies/alice.png';
         this.amormina = './components/imageMovies/amormina.png';
         this.camino = './components/imageMovies/camino.png';
@@ -63,12 +80,14 @@ class AppContainer extends HTMLElement {
         this.spenser = './components/imageMovies/spenser.png';
         this.stand = './components/imageMovies/stand.png';
     }
+
     connectedCallback() {
         this.render();
     }
+
     render() {
-        if (this.shadowRoot)
-            this.shadowRoot.innerHTML = `
+        if(this.shadowRoot)
+        this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css"/>
         <my-header></my-header>
         <section>         
@@ -103,4 +122,6 @@ class AppContainer extends HTMLElement {
         `;
     }
 }
-customElements.define('app-container', AppContainer);
+
+customElements.define('app-home', Home);
+export default Home;

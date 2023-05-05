@@ -1,4 +1,3 @@
-import "./components/index.js";
 export var Attribute;
 (function (Attribute) {
     Attribute["alice"] = "alice";
@@ -19,7 +18,7 @@ export var Attribute;
     Attribute["spenser"] = "spenser";
     Attribute["stand"] = "stand";
 })(Attribute || (Attribute = {}));
-class AppContainer extends HTMLElement {
+class Home extends HTMLElement {
     static get observedAttributes() {
         const attrs = {
             alice: null,
@@ -103,4 +102,5 @@ class AppContainer extends HTMLElement {
         `;
     }
 }
-customElements.define('app-container', AppContainer);
+customElements.define('app-home', Home);
+export default Home;

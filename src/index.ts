@@ -1,95 +1,99 @@
-import * as components from './components/index';
+import "./components/index.js";
+import * as components from "./components/index.js";
+import AppInfo from "./components/movie/alice.js";
+import Header from "./components/Header/header.js";
+import Home from "./components/home/home.js";
 
 export enum Attribute {
-    "alice" = "alice",
-    "amormina" = "amormina",
-    "camino" = "camino",
-    "christmas" = "christmas",
-    "glass" = "glass",
-    "bannerH" = "bannerH",
-    "hillhouse" = "hillhouse",
-    "stranger" = "stranger",
-    "lie" = "lie",
-    "love" = "love",
-    "ofmd" = "ofmd",
-    "iradedios" = "iradedios",
-    "jojo" = "jojo",
-    "rain" = "rain",
-    "sandman" = "sandman",
-    "spenser" = "spenser",
-    "stand" = "stand"
+  "alice" = "alice",
+  "amormina" = "amormina",
+  "camino" = "camino",
+  "christmas" = "christmas",
+  "glass" = "glass",
+  "bannerH" = "bannerH",
+  "hillhouse" = "hillhouse",
+  "stranger" = "stranger",
+  "lie" = "lie",
+  "love" = "love",
+  "ofmd" = "ofmd",
+  "iradedios" = "iradedios",
+  "jojo" = "jojo",
+  "rain" = "rain",
+  "sandman" = "sandman",
+  "spenser" = "spenser",
+  "stand" = "stand",
 }
 class AppContainer extends HTMLElement {
-    alice?: string;
-    amormina?: string;
-    camino?: string;
-    christmas?: string;
-    glass?: string;
-    bannerH?: string;
-    hillhouse?: string;
-    stranger?: string;
-    lie?: string;
-    love?: string;
-    ofmd?: string;
-    iradedios?: string;
-    jojo?: string;
-    rain?: string;
-    sandman?: string;
-    spenser?: string;
-    stand?: string;
+  alice?: string;
+  amormina?: string;
+  camino?: string;
+  christmas?: string;
+  glass?: string;
+  bannerH?: string;
+  hillhouse?: string;
+  stranger?: string;
+  lie?: string;
+  love?: string;
+  ofmd?: string;
+  iradedios?: string;
+  jojo?: string;
+  rain?: string;
+  sandman?: string;
+  spenser?: string;
+  stand?: string;
 
-    static get observedAttributes() {
-        const attrs: Record<Attribute, null> = {
-            alice: null,
-            amormina: null,
-            camino: null,
-            christmas: null,
-            glass: null,
-            bannerH: null,
-            hillhouse: null,
-            stranger: null,
-            lie: null,
-            love: null,
-            ofmd: null,
-            iradedios: null,
-            jojo: null,
-            rain: null,
-            sandman: null,
-            spenser: null,
-            stand: null
-        }
-        return Object.keys(attrs);
-    }
+  static get observedAttributes() {
+    const attrs: Record<Attribute, null> = {
+      alice: null,
+      amormina: null,
+      camino: null,
+      christmas: null,
+      glass: null,
+      bannerH: null,
+      hillhouse: null,
+      stranger: null,
+      lie: null,
+      love: null,
+      ofmd: null,
+      iradedios: null,
+      jojo: null,
+      rain: null,
+      sandman: null,
+      spenser: null,
+      stand: null,
+    };
+    return Object.keys(attrs);
+  }
 
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-        this.alice = './components/imageMovies/alice.png';
-        this.amormina = './components/imageMovies/amormina.png';
-        this.camino = './components/imageMovies/camino.png';
-        this.christmas = './components/imageMovies/christmas.png';
-        this.glass = './components/imageMovies/glass.png';
-        this.bannerH = './components/imageMovies/Group6.png';
-        this.hillhouse = './components/imageMovies/hillhouse.png';
-        this.stranger = './components/imageMovies/image11.png';
-        this.lie = './components/imageMovies/image12.png';
-        this.love = './components/imageMovies/image13.png';
-        this.ofmd = './components/imageMovies/image14.png';
-        this.iradedios = './components/imageMovies/iradedios.png';
-        this.jojo = './components/imageMovies/Jojo.png';
-        this.rain = './components/imageMovies/rain.png';
-        this.sandman = './components/imageMovies/sandman.png';
-        this.spenser = './components/imageMovies/spenser.png';
-        this.stand = './components/imageMovies/stand.png';
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.alice = "./components/imageMovies/alice.png";
+    this.amormina = "./components/imageMovies/amormina.png";
+    this.camino = "./components/imageMovies/camino.png";
+    this.christmas = "./components/imageMovies/christmas.png";
+    this.glass = "./components/imageMovies/glass.png";
+    this.bannerH = "./components/imageMovies/Group6.png";
+    this.hillhouse = "./components/imageMovies/hillhouse.png";
+    this.stranger = "./components/imageMovies/image11.png";
+    this.lie = "./components/imageMovies/image12.png";
+    this.love = "./components/imageMovies/image13.png";
+    this.ofmd = "./components/imageMovies/image14.png";
+    this.iradedios = "./components/imageMovies/iradedios.png";
+    this.jojo = "./components/imageMovies/Jojo.png";
+    this.rain = "./components/imageMovies/rain.png";
+    this.sandman = "./components/imageMovies/sandman.png";
+    this.spenser = "./components/imageMovies/spenser.png";
+    this.stand = "./components/imageMovies/stand.png";
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        if(this.shadowRoot)
-        this.shadowRoot.innerHTML = `
+  render() {
+    if (this.shadowRoot)
+      this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css"/>
         <my-header></my-header>
         <section>         
@@ -122,7 +126,7 @@ class AppContainer extends HTMLElement {
             </div>
         </section>
         `;
-    }
+  }
 }
 
-customElements.define('app-container', AppContainer);
+customElements.define("app-container", AppContainer);
