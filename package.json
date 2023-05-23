@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Lina-003/FinalProject#readme",
   "dependencies": {
+    "firebase": "^9.22.0",
     "serve": "^14.2.0"
   },
   "devDependencies": {
