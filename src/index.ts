@@ -1,14 +1,14 @@
-import "./components/index.js";
-import * as components from "./components/index.js";
-import AppInfo from "./components/movie/alice.js";
-import Header from "./components/Header/header.js";
-import Home from "./components/home/home.js";
+import "./components/index";
+import"./screens/dashboard";
+import { Screens } from "./types/navigation";
+import { appState } from "./store";
 
 class AppContainer extends HTMLElement {
   
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+   // addObserver(this);
   }
 
   connectedCallback() {
@@ -16,12 +16,19 @@ class AppContainer extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot)
-      this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="./styles.css"/>
-        <my-header></my-header>
-        <app-home></app-home>
+    
+    if(this.shadowRoot) this.shadowRoot.innerHTML=`
+      <link rel="stylesheet" href="../src/index.css">
         `;
+        switch (appState.screen) {
+            case Screens.DASHBOARD:
+              const dashboard = this.ownerDocument.createElement("my-dashboard");
+              this.shadowRoot?.appendChild(dashboard);
+              break;
+      
+            default:
+              break;
+        }
   }
 }
 
