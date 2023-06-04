@@ -1,14 +1,12 @@
 export interface dataWikiShape {
-  character: {
-    id: number;
+    id: string;
     photo: string;
     nCharacter: string;
     actor: string;
     description: string;
     status: string;
     gender: string;
-    age: number;
+    age: string;
     affilation: string;
     episode: string;
-  };
-}
+  }

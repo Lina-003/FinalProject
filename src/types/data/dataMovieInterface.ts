@@ -1,14 +1,13 @@
 export interface dataMovieShape {
-  movie: {
-    frontpage: string;
-    sinopsis: string;
-    created: string;
-    starring: string;
-  };
+  frontpage: string;
+  title: string;
+  sinopsis: string;
+  created: string;
+  starring: string;
+}
 
-  characters: {
-    id: number;
-    photo: string;
-    name: string;
-  };
+export interface dataCMovieShape {
+  id: string;
+  photo: string;
+  name: string;
 }
