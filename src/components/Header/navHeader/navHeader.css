@@ -17,12 +17,14 @@ a {
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-left: 15px;
 }
 
 .navRight {
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-left: 945px;
 }
 
 *{
