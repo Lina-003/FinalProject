@@ -9,7 +9,7 @@ const emptyState: AppState = {
     header: {
         img: ""
     },
-
+    movies: []
 };
 
 export let appState = storage.get<AppState>({key: PersistanceKeys.STORE, defaultValue: emptyState});

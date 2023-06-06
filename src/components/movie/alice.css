@@ -10,3 +10,34 @@
 nav {
     display: flex;
 }
+.left-nav {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.right-nav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.banner-alice img{
+    width: -webkit-fill-available;
+    object-fit: cover;
+}
+.full-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 3rem;
+    color: #eee;
+}
+.full-container .info-container {
+    max-width: 70%;
+}
+
+.characters {
+    display: flex;
+    justify-content: space-around;
+}

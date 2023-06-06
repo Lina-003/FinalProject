@@ -1,7 +1,9 @@
 import '../components/index'
 import { Attribute2 } from '../components/Header/header'
 import { Attribute } from '../components/home/home';
-import {addObserver} from "../store";
+import {addObserver, dispatch} from "../store";
+import Firebase from "../utils/firebase";
+import {updateMovies} from "../store/actions";
 
 export default class Dashboard extends HTMLElement {
     constructor() {
@@ -12,6 +14,13 @@ export default class Dashboard extends HTMLElement {
 
     connectedCallback(){
         this.render()
+    }
+
+    async fetchData (){
+        const data = await Firebase.getMovies()
+        if (data){
+            dispatch(updateMovies(data))
+        }
     }
 
     render(){
@@ -25,8 +34,8 @@ export default class Dashboard extends HTMLElement {
                 header.setAttribute(Attribute2.notification, "../src/components/imageHeader/noti.png")
                 header.setAttribute(Attribute2.user, "../src/components/imageHeader/user.png")
             dashboardScreen?.appendChild(header);
-
             const home = this.ownerDocument.createElement("my-home");
+
                 home.setAttribute(Attribute.alice, "../src/components/imageMovies/alice.png");
                 home.setAttribute(Attribute.amormina, "../src/components/imageMovies/amormina.png");
                 home.setAttribute(Attribute.camino, "../src/components/imageMovies/camino.png");

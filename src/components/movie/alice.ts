@@ -143,7 +143,7 @@ class AppInfo extends HTMLElement {
         //p
         let pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "info")
-        pEl.textContent = "In 1717, Captain Bonnet is a member of the landed gentry of Barbados who abandons his comfortable life and family to prove himself as a pirate during the Golden Age of Piracy, despite having no aptitude for the role. Sailing aboard his ship the Revenge, Captain Bonnet and his dysfunctional crew struggle to survive against deadly threats from naval warships and other bloodthirsty pirates. During their misadventures the crew of the Revenge cross paths with notorious pirate captain Edward Teach and his crew, including First Mate Izzy Hands. Bonnet and Teach eventually fall in love."
+        pEl.textContent = "A video game fan and his two friends find themselves trapped in a parallel version of Tokyo, where they must compete in sadistic games to survive."
         thirdChildEl.appendChild(pEl)
         //p
         pEl = this.ownerDocument.createElement("p")
@@ -152,7 +152,7 @@ class AppInfo extends HTMLElement {
         let spanEl = this.ownerDocument.createElement("span")
         spanEl.textContent = "Created by: "
         pEl.appendChild(spanEl)
-        pEl.textContent = "David Jenkins"
+        pEl.textContent = "Shinsuke Sato"
         thirdChildEl.appendChild(pEl)
         //p
         pEl = this.ownerDocument.createElement("p")
@@ -161,7 +161,7 @@ class AppInfo extends HTMLElement {
         spanEl = this.ownerDocument.createElement("span")
         spanEl.textContent = "Starring: "
         pEl.appendChild(spanEl)
-        pEl.textContent = "Rhys Darby, Ewen Bremner, Joel Fry, Samson Kayo"
+        pEl.textContent = "Kento Yamazaki and Tao Tsuchiya"
         thirdChildEl.appendChild(pEl)
         secondChildEl.appendChild(thirdChildEl)
         //div
@@ -203,7 +203,7 @@ class AppInfo extends HTMLElement {
         thirdChildEl.setAttribute("height", "300np")
         thirdChildEl.setAttribute("alt", "")
         thirdChildEl.addEventListener("click", ()=>{
-            dispatch(navigate(Screens.CARO));
+            dispatch(navigate(Screens.CARO ));
         })
         secondChildEl.appendChild(thirdChildEl)
         //img
@@ -226,79 +226,10 @@ class AppInfo extends HTMLElement {
         secondChildEl.appendChild(thirdChildEl)
         firstChildEl.appendChild(secondChildEl)
         el.appendChild(firstChildEl)
-        // //div
-        // firstChildEl = this.ownerDocument.createElement("div")
-        // firstChildEl.setAttribute("class","moments-container")
-        // //div
-        // secondChildEl = this.ownerDocument.createElement("div")
-        // secondChildEl.setAttribute("class", "moments")
-        // //img
-        // thirdChildEl = this.ownerDocument.createElement("img")
-        // thirdChildEl.setAttribute("src", this.moment_1 ?? "")
-        // thirdChildEl.setAttribute("height", "300np")
-        // thirdChildEl.setAttribute("alt", "")
-        // secondChildEl.appendChild(thirdChildEl)
-        // //img
-        // thirdChildEl = this.ownerDocument.createElement("img")
-        // thirdChildEl.setAttribute("src", this.moment_2 ?? "")
-        // thirdChildEl.setAttribute("height", "300np")
-        // thirdChildEl.setAttribute("alt", "")
-        // secondChildEl.appendChild(thirdChildEl)
-        // firstChildEl.appendChild(secondChildEl)
-        // el.appendChild(firstChildEl)
+        
         this.shadowRoot?.appendChild(el)
 
-        // const temp = `
-        // <section class="container">
-        //   <section class="banner-container">
-        //       <nav>
-        //           <div class="left-nav">
-        //             <img src=${this.back} height = "30np" alt=" "></img>
-        //           </div>
-        //
-        //           <div class="right-nav">
-        //             <img src=${this.search} height = "30np" alt=" "></img>
-        //             <img src=${this.log_perfil} height = "30np" alt=" "></img>
-        //           </div>
-        //       </nav>
-        //
-        //       <div class = "banner-alice">
-        //         <img src=${this.b_alice} height = "480np" alt=" "></img>
-        //       </div>
-        //
-        //       <section class="full-container">
-        //         <div class="info-container">
-        //           <p class="info">In 1717, Captain Bonnet is a member of the landed gentry of Barbados who abandons his comfortable life and family to prove himself as a pirate during the Golden Age of Piracy, despite having no aptitude for the role. Sailing aboard his ship the Revenge, Captain Bonnet and his dysfunctional crew struggle to survive against deadly threats from naval warships and other bloodthirsty pirates. During their misadventures the crew of the Revenge cross paths with notorious pirate captain Edward Teach and his crew, including First Mate Izzy Hands. Bonnet and Teach eventually fall in love.</p>
-        //           <p class="creator"><span>Created by: </span>David Jenkins</p>
-        //           <p class="starring"><span>Starring: </span>Rhys Darby, Ewen Bremner, Joel Fry, Samson Kayo</p>
-        //         </div>
-        //         <div class="play">
-        //             <img src=${this.play} height = "70np" alt=" "></img>
-        //             <img src=${this.add} height = "70np" alt=" "></img>
-        //
-        //         </div>
-        //       </section>
-        //
-        //   </section>
-        //
-        //     <div id="characters-container">
-        //         <div class = "characters">
-        //             <img src=${this.c_ann} height = "300np" alt=" "></img>
-        //             <img src=${this.c_ari} height = "300np" alt=" "></img>
-        //             <img src=${this.c_hika} height = "300np" alt=" "></img>
-        //             <img src=${this.c_shun} height = "300np" alt=" "></img>
-        //             <img src=${this.c_sugu} height = "300np" alt=" "></img>
-        //         </div>
-        //     </div>
-        //
-        //     <div id="moments-container">
-        //         <div class = "moments">
-        //             <img src=${this.moment_1} height = "300np" alt=" "></img>
-        //             <img src=${this.moment_2} height = "300np" alt=" "></img>
-        //         </div>
-        //     </div>
-        // </section>
-        // `;
+        
     }
 }
 

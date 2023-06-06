@@ -13,6 +13,7 @@ class AppContainer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"});
+
         addObserver(this);
     }
 
@@ -43,23 +44,23 @@ class AppContainer extends HTMLElement {
                 break;
             case Screens.ANN:
                 const ann = this.ownerDocument.createElement("character-info")
-                ann.setAttribute(Attribute4.name,"ann")
-                ann.setAttribute(Attribute4.description,"description sad")
-                ann.setAttribute(Attribute4.character_status,"char status")
-                ann.setAttribute(Attribute4.character_gender,"male")
-                ann.setAttribute(Attribute4.character_age,"430 years old")
-                ann.setAttribute(Attribute4.affiliation_squad,"omega")
+                ann.setAttribute(Attribute4.name,"Yuzuha Usagi")
+                ann.setAttribute(Attribute4.description,"A female mountain climber who was transported to the empty city of Tokyo shortly after her father's death. Usagi joins Arisu shortly after the death of his friends.")
+                ann.setAttribute(Attribute4.character_status,"Char status")
+                ann.setAttribute(Attribute4.character_gender,"Female")
+                ann.setAttribute(Attribute4.character_age,"20 years old")
+                ann.setAttribute(Attribute4.affiliation_squad,"Pilote")
                 ann.setAttribute(Attribute4.debut_episode,"First Season, chapter 1 (20-august-2020)")
                 this.shadowRoot?.appendChild(ann)
                 break;
             case Screens.CARO:
                 const caro = this.ownerDocument.createElement("character-info")
-                caro.setAttribute(Attribute4.name,"caro")
-                caro.setAttribute(Attribute4.description,"description sad caro")
-                caro.setAttribute(Attribute4.character_status,"char status caro")
-                caro.setAttribute(Attribute4.character_gender,"female")
-                caro.setAttribute(Attribute4.character_age,"20 years old")
-                caro.setAttribute(Attribute4.affiliation_squad,"idunno")
+                caro.setAttribute(Attribute4.name,"Ryohei Arisu")
+                caro.setAttribute(Attribute4.description,"A 24-year-old man obsessed with video games who feels he does not fit in with his family")
+                caro.setAttribute(Attribute4.character_status,"Char status")
+                caro.setAttribute(Attribute4.character_gender,"Male")
+                caro.setAttribute(Attribute4.character_age,"24 years old")
+                caro.setAttribute(Attribute4.affiliation_squad,"Pilote")
                 caro.setAttribute(Attribute4.debut_episode,"First Season, chapter 1 (1-august-2020)")
                 this.shadowRoot?.appendChild(caro)
                 break;

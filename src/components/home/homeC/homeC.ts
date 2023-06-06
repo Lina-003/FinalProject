@@ -1,6 +1,8 @@
 import {dispatch} from "../../../store";
 import {navigate} from "../../../store/actions";
 import {Screens} from "../../../types/navigation";
+import {MovieInterface} from "../../../types/data/movieInterface";
+import {addObserver, appState} from "../../../store";
 
 export enum HomeCom {
     "alice" = "alice",
@@ -66,20 +68,20 @@ export default class HomeC extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
-    }
-
-    connectedCallback() {
-        this.render();
+        addObserver(this)
     }
 
     attributeChangedCallback(
         propName: HomeCom,
         oldValue: string | undefined,
         newValue: string | undefined
-      ) {
+    ) {
         this[propName] = newValue;
         this.render();
-      }
+    }
+    connectedCallback() {
+        this.render();
+    }
 
     render() {
         if (this.shadowRoot) {
@@ -108,6 +110,8 @@ export default class HomeC extends HTMLElement {
         //div
         let divElement = this.ownerDocument.createElement("div")
         divElement.setAttribute("class", "movies")
+        //-------------------------------------------------
+        //-------------------------------------------------
         //img
         let thirdChildEl = this.ownerDocument.createElement("img")
         thirdChildEl.setAttribute("class", "change")
@@ -200,39 +204,6 @@ export default class HomeC extends HTMLElement {
         el.appendChild(firstChildEl)
         this.shadowRoot?.appendChild(el)
 
-        // const temp = `
-        // <section>
-        //     <div class = "banner">
-        //         <img src=${this.banner} height="480np" alt=" "></img>
-        //     </div>
-        //
-        //     <input>
-        //         sort by
-        //     </input>
-        //
-        //     <div id="movies-container">
-        //         <div class = "movies">
-        //
-        //             <img class="change" src=${this.alice} height = "300np" alt=" "></img>
-        //
-        //             <img src=${this.amormina} height = "300np" alt=" "></img>
-        //             <img src=${this.camino} height = "300np" alt=" "></img>
-        //             <img src=${this.glass} height = "300np" alt=" "></img>
-        //             <img src=${this.hillhouse} height = "300np" alt=" "></img>
-        //             <img src=${this.stranger} height = "300np" alt=" "></img>
-        //             <img src=${this.lie} height = "300np" alt=" "></img>
-        //             <img src=${this.love} height = "300np" alt=" "></img>
-        //             <img src=${this.ofmd} height = "300np" alt=" "></img>
-        //             <img src=${this.iradedios} height = "300np" alt=" "></img>
-        //             <img src=${this.jojo} height = "300np" alt=" "></img>
-        //             <img src=${this.rain} height = "300np" alt=" "></img>
-        //             <img src=${this.sandman} height = "300np" alt=" "></img>
-        //             <img src=${this.spenser} height = "300np" alt=" "></img>
-        //             <img src=${this.stand} height = "300np" alt=" "></img>
-        //         </div>
-        //     </div>
-        // </section>
-        // `;
     }
 }
 

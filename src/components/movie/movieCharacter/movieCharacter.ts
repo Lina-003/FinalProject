@@ -1,6 +1,7 @@
 import {dispatch} from "../../../store";
 import {navigate} from "../../../store/actions";
 import {Screens} from "../../../types/navigation";
+import {addObserver, appState} from "../../../store";
 
 export enum Attribute4 {
     "b_alice" = "b_alice",
@@ -8,11 +9,11 @@ export enum Attribute4 {
     "search" = "search",
     "log_perfil" = "log_perfil",
     "character" = "character",
-    "name"= "name",
+    "name" = "name",
     "description" = "description",
-    "character_status"= "character_status",
-    "character_gender"= "character_gender",
-    "character_age"= "character_age",
+    "character_status" = "character_status",
+    "character_gender" = "character_gender",
+    "character_age" = "character_age",
     "affiliation_squad" = "affiliation_squad",
     "debut_episode" = "debut_episode"
 }
@@ -24,12 +25,12 @@ class MovieCharacter extends HTMLElement {
     log_perfil?: string;
     character?: string;
     name?: string;
-    description? :string;
+    description?: string;
     character_status?: string;
-    character_gender?:string;
-    character_age?:string;
-    affiliation_squad? : string;
-    debut_episode? : string;
+    character_gender?: string;
+    character_age?: string;
+    affiliation_squad?: string;
+    debut_episode?: string;
 
     static get observedAttributes() {
         const attrs: Record<Attribute4, null> = {
@@ -39,12 +40,12 @@ class MovieCharacter extends HTMLElement {
             log_perfil: null,
             character: null,
             name: null,
-            description:null,
-            character_status:null,
-            character_gender:null,
-            character_age:null,
-            affiliation_squad:null,
-            debut_episode:null
+            description: null,
+            character_status: null,
+            character_gender: null,
+            character_age: null,
+            affiliation_squad: null,
+            debut_episode: null
         };
         return Object.keys(attrs);
     }
@@ -61,9 +62,9 @@ class MovieCharacter extends HTMLElement {
         this.description = ""
         this.character_status = ""
         this.character_gender = ""
-        this.character_age=""
-        this.affiliation_squad=""
-        this.debut_episode=""
+        this.character_age = ""
+        this.affiliation_squad = ""
+        this.debut_episode = ""
     }
 
     connectedCallback() {
@@ -83,6 +84,9 @@ class MovieCharacter extends HTMLElement {
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = `<link rel="stylesheet" href="../src/components/movie/movieCharacter/movieCharacter.css">`;
         }
+
+        console.log(appState.movies)
+
         //section
         let el = this.ownerDocument.createElement("section")
         el.setAttribute("class", "container")
@@ -99,7 +103,7 @@ class MovieCharacter extends HTMLElement {
         forthChildEl.setAttribute("src", this.back ?? "")
         forthChildEl.setAttribute("height", "30np")
         forthChildEl.setAttribute("alt", "")
-        thirdChildEl.addEventListener("click", ()=>{
+        thirdChildEl.addEventListener("click", () => {
             dispatch(navigate(Screens.ALICE));
         })
         thirdChildEl.appendChild(forthChildEl)
@@ -140,65 +144,55 @@ class MovieCharacter extends HTMLElement {
         //h1
         let h2El = this.ownerDocument.createElement("h2")
         h2El.setAttribute("class", "character-name")
-        h2El.textContent = this.name??"name"
+        h2El.textContent = this.name ?? "name"
         thirdChildEl.appendChild(h2El)
         //p
         let pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "description")
-        pEl.textContent = this.description??"description"
+        pEl.textContent = this.description ?? "description"
+       
         thirdChildEl.appendChild(pEl)
-        //a
-        let anchorEl = this.ownerDocument.createElement("a")
-        anchorEl.setAttribute("class", "link")
-        anchorEl.textContent = "Edit info"
-        thirdChildEl.appendChild(anchorEl)
+        // thirdChildEl.appendChild(anchorEl)
         secondChildEl.appendChild(thirdChildEl)
         //div
         thirdChildEl = this.ownerDocument.createElement("div")
         thirdChildEl.setAttribute("class", "side-container")
-        //anchor
-        anchorEl = this.ownerDocument.createElement("a")
-        anchorEl.setAttribute("class", "link")
-        anchorEl.textContent = "Edit img"
-        thirdChildEl.appendChild(anchorEl)
+        
         //img
         forthChildEl = this.ownerDocument.createElement("img")
         forthChildEl.setAttribute("src", this.character ?? "")
         forthChildEl.setAttribute("height", "140np")
         forthChildEl.setAttribute("alt", "")
         thirdChildEl.appendChild(forthChildEl)
-        anchorEl = this.ownerDocument.createElement("a")
-        anchorEl.setAttribute("class", "link")
-        anchorEl.textContent = "Edit info"
-        thirdChildEl.appendChild(anchorEl)
+       
         //card
         let divElement = this.ownerDocument.createElement("div")
-        divElement.setAttribute("class","card top")
+        divElement.setAttribute("class", "card top")
         let fifthChildEl = this.ownerDocument.createElement("div")
         fifthChildEl.setAttribute("class", "card-header")
         fifthChildEl.textContent = "CHARACTER INFORMATION"
 
         let sixthChildEl = this.ownerDocument.createElement("div")
-        sixthChildEl.setAttribute("class","body")
+        sixthChildEl.setAttribute("class", "body")
         pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "character-attribute")
         pEl.textContent = "Status: "
         let spanEl = this.ownerDocument.createElement("span")
-        spanEl.textContent = this.character_status??"status"
+        spanEl.textContent = this.character_status ?? "status"
         pEl.appendChild(spanEl)
         sixthChildEl.appendChild(pEl)
         pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "character-attribute")
         pEl.textContent = "Gender: "
         spanEl = this.ownerDocument.createElement("span")
-        spanEl.textContent = this.character_gender??"gender"
+        spanEl.textContent = this.character_gender ?? "gender"
         pEl.appendChild(spanEl)
         sixthChildEl.appendChild(pEl)
         pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "character-attribute")
         pEl.textContent = "Age: "
         spanEl = this.ownerDocument.createElement("span")
-        spanEl.textContent = this.character_age??"age"
+        spanEl.textContent = this.character_age ?? "age"
         pEl.appendChild(spanEl)
         sixthChildEl.appendChild(pEl)
         let cardContentDiv = this.ownerDocument.createElement("div")
@@ -210,17 +204,17 @@ class MovieCharacter extends HTMLElement {
 
         //card
         divElement = this.ownerDocument.createElement("div")
-        divElement.setAttribute("class","card")
+        divElement.setAttribute("class", "card")
         fifthChildEl = this.ownerDocument.createElement("div")
         fifthChildEl.setAttribute("class", "card-header")
         fifthChildEl.textContent = "CHARACTER AFFILIATION"
         sixthChildEl = this.ownerDocument.createElement("div")
-        sixthChildEl.setAttribute("class","body")
+        sixthChildEl.setAttribute("class", "body")
         pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "character-attribute")
         pEl.textContent = "Squad: "
         spanEl = this.ownerDocument.createElement("span")
-        spanEl.textContent = this.affiliation_squad??"squad"
+        spanEl.textContent = this.affiliation_squad ?? "squad"
         pEl.appendChild(spanEl)
         sixthChildEl.appendChild(pEl)
         cardContentDiv = this.ownerDocument.createElement("div")
@@ -232,17 +226,17 @@ class MovieCharacter extends HTMLElement {
 
         //card
         divElement = this.ownerDocument.createElement("div")
-        divElement.setAttribute("class","card")
+        divElement.setAttribute("class", "card bottom")
         fifthChildEl = this.ownerDocument.createElement("div")
         fifthChildEl.setAttribute("class", "card-header")
         fifthChildEl.textContent = "DEBUT"
         sixthChildEl = this.ownerDocument.createElement("div")
-        sixthChildEl.setAttribute("class","body")
+        sixthChildEl.setAttribute("class", "body")
         pEl = this.ownerDocument.createElement("p")
         pEl.setAttribute("class", "character-attribute")
         pEl.textContent = "Episode: "
         spanEl = this.ownerDocument.createElement("span")
-        spanEl.textContent = this.affiliation_squad??"squad"
+        spanEl.textContent = this.affiliation_squad ?? "squad"
         pEl.appendChild(spanEl)
         sixthChildEl.appendChild(pEl)
         cardContentDiv = this.ownerDocument.createElement("div")

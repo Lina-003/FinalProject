@@ -1,10 +1,8 @@
 import "../components/index";
-import styles from "./login.css";
 import {navigate} from "../store/actions";
 import {addObserver, dispatch} from "../store";
 import {Screens} from "../types/navigation";
-//import firebase from "firebase/compat";
-//import Firebase from ".firebase";
+import Firebase from "../utils/firebase";
 
 const userPass = {email: "", password: ""};
 
@@ -20,57 +18,109 @@ export default class LogIn extends HTMLElement {
     }
 
     async handleLoginButton() {
-        console.log("handleLoginButton");
-        // Firebase.loginUser(userPass);
+        const response = await Firebase.loginUser(userPass)
+
+        if (response === undefined || response === null){
+            alert("Can't login, try again!")
+        } else if (response){
+            alert("Correctly logged!")
+            dispatch(navigate(Screens.DASHBOARD));
+        }
     }
 
+// <div class="login-box">
+//     <h2>Login</h2>
+//     <form>
+//     <div class="user-box">
+//          <input type="text" name="" required="">
+//          <label>Username</label>
+//     </div>
+//     <div class="user-box">
+//         <input type="password" name="" required="">
+//         <label>Password</label>
+//     </div>
+//         <a href="#">
+//         <span></span>
+//         <span></span>
+//         <span></span>
+//         <span></span>
+//     Submit
+//     </a>
+// </form>
+// </div>
+
     render() {
-        if(this.shadowRoot)
-        this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="../src/screens/logIn.css">
-        `;
+        if (this.shadowRoot) {
+            this.shadowRoot.innerHTML = `<link rel="stylesheet" href="/src/screens/logIn.css">`;
+        }
 
-        const title = this.ownerDocument.createElement("h1");
-        title.innerText = "Welcome! Please sign in";
-        this.shadowRoot?.appendChild(title);
+        const el = this.ownerDocument.createElement("div")
+        el.setAttribute("class", "login-box")
+        let firstChildEl = this.ownerDocument.createElement("h2")
+        firstChildEl.textContent = "LOGIN"
+        el.appendChild(firstChildEl)
 
-        const email = this.ownerDocument.createElement("input");
-        email.placeholder = "email";
-        email.type = "email";
-        email.addEventListener(
+        const formEl = this.ownerDocument.createElement("form")
+        formEl.addEventListener("submit", (e) => {
+            e.preventDefault()
+        })
+        let childFormEl = this.ownerDocument.createElement("div")
+        childFormEl.setAttribute("class", "user-box")
+        let secondChildFormEl = this.ownerDocument.createElement("input")
+        secondChildFormEl.setAttribute("type", "text")
+        secondChildFormEl.setAttribute("name", "username")
+        secondChildFormEl.setAttribute("required", "true")
+        secondChildFormEl.addEventListener(
             "change",
             (e: any) => (userPass.email = e.target.value)
         );
-        this.shadowRoot?.appendChild(email);
+        childFormEl.appendChild(secondChildFormEl)
+        let labelEl = this.ownerDocument.createElement("label")
+        labelEl.textContent = "Username"
+        childFormEl.appendChild(labelEl)
+        formEl.appendChild(childFormEl)
 
-        const password = this.ownerDocument.createElement("input");
-        password.placeholder = "*********";
-        password.type = "password";
-        password.addEventListener(
+        childFormEl = this.ownerDocument.createElement("div")
+        childFormEl.setAttribute("class", "user-box")
+        secondChildFormEl = this.ownerDocument.createElement("input")
+        secondChildFormEl.setAttribute("type", "password")
+        secondChildFormEl.setAttribute("name", "password")
+        secondChildFormEl.setAttribute("required", "true")
+        secondChildFormEl.addEventListener(
             "change",
             (e: any) => (userPass.password = e.target.value)
         );
-        this.shadowRoot?.appendChild(password);
+        childFormEl.appendChild(secondChildFormEl)
+        labelEl = this.ownerDocument.createElement("label")
+        labelEl.textContent = "Password"
+        childFormEl.appendChild(labelEl)
+        formEl.appendChild(childFormEl)
 
-        const loginButton = this.ownerDocument.createElement("button");
-        loginButton.innerText = "Log In";
+        const loginButton = this.ownerDocument.createElement("a");
+        loginButton.innerText = "Login";
+        loginButton.setAttribute("class", "login-btn")
         loginButton.addEventListener("click", () => {
-            this.handleLoginButton().then( ()=>{
-                dispatch(navigate(Screens.DASHBOARD));
-            }).catch((error) => {
-
-            })
+            this.handleLoginButton()
         });
-        this.shadowRoot?.appendChild(loginButton);
+
+        const divEl = this.ownerDocument.createElement("div")
+        divEl.setAttribute("class", "btn-container")
+        divEl.appendChild(loginButton)
+        formEl.appendChild(divEl)
 
         const signUpButton = this.ownerDocument.createElement("a");
+        signUpButton.setAttribute("class", "signup-btn")
         signUpButton.innerText = "Create an account";
         signUpButton.addEventListener(
             "click",
             (e: any) => {
                 dispatch(navigate(Screens.SIGNUP));
             });
-        this.shadowRoot?.appendChild(signUpButton);
+        formEl.appendChild(signUpButton)
+
+        el.appendChild(formEl)
+
+        this.shadowRoot?.appendChild(el);
     }
 }
 

@@ -66,6 +66,9 @@ export default class HeaderNav extends HTMLElement {
         el.setAttribute("class", "header")
         this.shadowRoot?.appendChild(el);
 
+        const nav = this.ownerDocument.createElement("div")
+        nav.setAttribute("class", "nav")
+
         el = this.ownerDocument.createElement("div")
         el.setAttribute("class", "navLeft")
         let childEl = this.ownerDocument.createElement("img")
@@ -81,7 +84,7 @@ export default class HeaderNav extends HTMLElement {
         anchorEl.setAttribute("href", "")
         anchorEl.textContent = "Series"
         el.appendChild(anchorEl)
-        this.shadowRoot?.appendChild(el);
+        nav.appendChild(el)
 
         el = this.ownerDocument.createElement("div")
         el.setAttribute("class", "navRight")
@@ -100,31 +103,14 @@ export default class HeaderNav extends HTMLElement {
         childEl.setAttribute("height", "30np")
         childEl.setAttribute("alt", " ")
         el.appendChild(childEl)
-        this.shadowRoot?.appendChild(el);
+
+        nav.appendChild(el)
+
+        this.shadowRoot?.appendChild(nav);
         el = this.ownerDocument.createElement("p")
         this.shadowRoot?.appendChild(el)
 
-        // if (this.shadowRoot) {
-        //     this.shadowRoot.innerHTML = `
-        //
-        //     <section>
-        //       <p> </p>
-        //       <div class="header">
-        //       <div class="navLeft">
-        //           <img src="${this.logo}" height = "60np" alt=" "></img>
-        //           <a href="">Movies</a>
-        //           <a href="">Series</a>
-        //       </div>
-        //       <div class="navRight">
-        //           <img src="${this.search}" height = "30np" alt=" "></img>
-        //           <img src="${this.notification}" height = "30np" alt=" "></img>
-        //           <img id="userBtn" src="${this.user}" height = "30np" alt=" "></img>
-        //       </div>
-        //       </div>
-        //       <p> </p>
-        //     </section>
-        //     `;
-        // }
+        
     }
 }
 

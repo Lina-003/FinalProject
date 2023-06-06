@@ -9,6 +9,35 @@ nav {
     display: flex;
 }
 
+.left-nav {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.right-nav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.full-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 3rem;
+    color: #eee;
+}
+
+.info-container .character-name{
+    font-size: xxx-large;
+}
+
+.info-container .description{
+    font-size: x-large;
+}
+
 .card {
     max-width: 320px;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
@@ -21,11 +50,11 @@ nav {
     object-fit: cover;
 }
 
-.card.top{
+.card.top .card-header{
     border-radius: 10px 10px 0 0;
 }
 
-.card.bottom{
+.card.bottom .body{
     border-radius:  0 0 10px 10px;
 }
 
@@ -40,58 +69,4 @@ nav {
     font-size: 0.875rem;
     line-height: 1.25rem;
     background-color: #333;
-}
-
-.body a {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246);
-}
-
-.body a:hover {
-    -webkit-text-decoration-line: underline;
-    text-decoration-line: underline;
-}
-
-.pref {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: rgb(31 41 55 );
-    -webkit-text-decoration-line: underline;
-    text-decoration-line: underline;
-    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    background-color: transparent;
-}
-
-.pref:hover {
-    color: rgb(156 163 175);
-}
-
-.pref:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-}
-
-.accept {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    background-color: rgb(17 24 39);
-    font-weight: 500;
-    border-radius: 0.5rem;
-    color: #fff;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-    border: none;
-    transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.accept:hover {
-    background-color: rgb(55 65 81);
-}
-
-.accept:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
 }

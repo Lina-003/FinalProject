@@ -1,4 +1,5 @@
 import { HomeCom } from "./homeC/homeC";
+import {MovieInterface} from "../../types/data/movieInterface";
 
 export enum Attribute {
     "alice" = "alice",
@@ -78,6 +79,8 @@ export default class Home extends HTMLElement {
             //Si está aquí, también debe ir en el Dashboard
             const homeSection = this.ownerDocument.createElement("home");
                 const homeComplete = this.ownerDocument.createElement("app-home");
+
+
                 homeComplete.setAttribute(HomeCom.alice, this.alice??"../src/components/imageMovies/alice.png");
                 homeComplete.setAttribute(HomeCom.amormina, this.amormina??"../src/components/imageMovies/amormina.png");
                 homeComplete.setAttribute(HomeCom.camino, this.camino??"../src/components/imageMovies/camino.png");
