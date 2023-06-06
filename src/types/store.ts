@@ -10,3 +10,4 @@ export type AppState = {
   
 };
 
+export type Observer = { render: () => void } & HTMLElement;

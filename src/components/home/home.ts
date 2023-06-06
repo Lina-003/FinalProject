@@ -6,7 +6,7 @@ export enum Attribute {
     "camino" = "camino",
     "christmas" = "christmas",
     "glass" = "glass",
-    "bannerH" = "bannerH",
+    "banner" = "banner",
     "hillhouse" = "hillhouse",
     "stranger" = "stranger",
     "lie" = "lie",
@@ -21,23 +21,23 @@ export enum Attribute {
 }
 export default class Home extends HTMLElement {
     //Se especifica de dónde es
-    alice?: string = Attribute.alice;
-    amormina?: string = Attribute.amormina;
-    camino?: string = Attribute.camino;
-    christmas?: string = Attribute.christmas;
-    glass?: string = Attribute.glass;
-    bannerH?: string = Attribute.bannerH;
-    hillhouse?: string = Attribute.hillhouse;
-    stranger?: string = Attribute.stranger;
-    lie?: string = Attribute.lie;
-    love?: string = Attribute.love;
-    ofmd?: string = Attribute.ofmd;
-    iradedios?: string = Attribute.iradedios;
-    jojo?: string = Attribute.jojo;
-    rain?: string = Attribute.rain;
-    sandman?: string = Attribute.sandman;
-    spenser?: string = Attribute.spenser;
-    stand?: string = Attribute.stand;
+    alice?: string;
+    amormina?: string;
+    camino?: string;
+    christmas?: string;
+    glass?: string;
+    banner?: string;
+    hillhouse?: string;
+    stranger?: string;
+    lie?: string;
+    love?: string;
+    ofmd?: string;
+    iradedios?: string;
+    jojo?: string;
+    rain?: string;
+    sandman?: string;
+    spenser?: string;
+    stand?: string;
 
     static get observedAttributes() {
         const attrs: Record<Attribute, null> = {
@@ -46,7 +46,7 @@ export default class Home extends HTMLElement {
             camino: null,
             christmas: null,
             glass: null,
-            bannerH: null,
+            banner: null,
             hillhouse: null,
             stranger: null,
             lie: null,
@@ -83,7 +83,7 @@ export default class Home extends HTMLElement {
                 homeComplete.setAttribute(HomeCom.camino, this.camino??"../src/components/imageMovies/camino.png");
                 homeComplete.setAttribute(HomeCom.christmas, this.christmas??"../src/components/imageMovies/christmas.png");
                 homeComplete.setAttribute(HomeCom.glass, this.glass??"../src/components/imageMovies/glass.png");
-                homeComplete.setAttribute(HomeCom.bannerH, this.bannerH??"../src/components/imageMovies/Group6.png");
+                homeComplete.setAttribute(HomeCom.banner, this.banner??"../src/components/imageMovies/group6.png");
                 homeComplete.setAttribute(HomeCom.hillhouse, this.hillhouse??"../src/components/imageMovies/hillhouse.png");
                 homeComplete.setAttribute(HomeCom.stranger, this.stranger??"../src/components/imageMovies/image11.png");
                 homeComplete.setAttribute(HomeCom.lie, this.lie??"../src/components/imageMovies/image12.png");

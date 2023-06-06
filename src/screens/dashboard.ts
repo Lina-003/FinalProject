@@ -1,11 +1,13 @@
 import '../components/index'
 import { Attribute2 } from '../components/Header/header'
 import { Attribute } from '../components/home/home';
+import {addObserver} from "../store";
 
 export default class Dashboard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode:"open"})
+        addObserver(this);
     }
 
     connectedCallback(){
@@ -30,7 +32,7 @@ export default class Dashboard extends HTMLElement {
                 home.setAttribute(Attribute.camino, "../src/components/imageMovies/camino.png");
                 home.setAttribute(Attribute.christmas, "../src/components/imageMovies/christmas.png");
                 home.setAttribute(Attribute.glass, "../src/components/imageMovies/glass.png");
-                home.setAttribute(Attribute.bannerH, "../src/components/imageMovies/Group6.png");
+                home.setAttribute(Attribute.banner, "../src/components/imageMovies/group6.png");
                 home.setAttribute(Attribute.hillhouse, "../src/components/imageMovies/hillhouse.png");
                 home.setAttribute(Attribute.stranger, "../src/components/imageMovies/image11.png");
                 home.setAttribute(Attribute.lie, "../src/components/imageMovies/image12.png");
